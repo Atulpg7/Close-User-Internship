@@ -32,7 +32,7 @@
                 android:text="Give details only once for use across all\n partners"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -58,10 +58,12 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="45dp"
                     android:layout_weight=".50"
+                    android:textSize="14sp"
                     android:background="@drawable/edit_text_bg"
                     android:hint="First Name"
+                    android:imeOptions="actionDone"
                     android:fontFamily="sans-serif-light"
                     android:inputType="text"
                     android:maxLines="1"
@@ -70,13 +72,15 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="45dp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="10dp"
                     android:layout_weight=".50"
                     android:background="@drawable/edit_text_bg"
                     android:hint="Last Name"
                     android:fontFamily="sans-serif-light"
                     android:inputType="text"
+                    android:imeOptions="actionDone"
                     android:maxLines="1"
                     android:paddingLeft="10dp"
                     android:textColor="@color/black" />
@@ -86,11 +90,13 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_margin="8dp"
                 android:layout_weight=".50"
+                android:textSize="14sp"
                 android:background="@drawable/edit_text_bg"
                 android:hint="Email Id"
+                android:imeOptions="actionDone"
                 android:fontFamily="sans-serif-light"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -100,27 +106,31 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_margin="8dp"
                 android:layout_weight=".50"
+                android:textSize="14sp"
                 android:background="@drawable/edit_text_bg"
                 android:hint="Delivery Address Line"
                 android:inputType="text"
                 android:fontFamily="sans-serif-light"
                 android:maxLines="1"
+                android:imeOptions="actionDone"
                 android:paddingLeft="10dp"
                 android:textColor="@color/black" />
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_margin="8dp"
                 android:layout_weight=".50"
+                android:textSize="14sp"
                 android:background="@drawable/edit_text_bg"
                 android:hint="City"
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="10dp"
+                android:imeOptions="actionDone"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/black" />
 
@@ -128,15 +138,17 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_margin="8dp"
                 android:layout_weight=".50"
+                android:textSize="14sp"
                 android:background="@drawable/edit_text_bg"
                 android:hint="Pincode"
                 android:inputType="number"
                 android:maxLines="1"
                 android:maxLength="6"
                 android:paddingLeft="10dp"
+                android:imeOptions="actionDone"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/black" />
 
@@ -163,9 +175,10 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_margin="5dp"
                 android:layout_weight=".30"
+                android:textSize="14sp"
                 android:background="@drawable/edit_text_bg"
                 android:hint="Card Number"
                 android:inputType="number"
@@ -173,21 +186,24 @@
                 android:maxLength="19"
                 android:paddingLeft="10dp"
                 android:fontFamily="sans-serif-light"
+                android:imeOptions="actionDone"
                 android:textColor="@color/black" />
 
 
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="45dp"
                     android:layout_margin="5dp"
                     android:layout_weight=".90"
+                    android:textSize="14sp"
                     android:background="@drawable/edit_text_bg"
                     android:hint="CVV"
                     android:inputType="number"
                     android:maxLines="1"
                     android:maxLength="4"
                     android:paddingLeft="10dp"
+                    android:imeOptions="actionDone"
                     android:fontFamily="sans-serif-light"
                     android:textColor="@color/black" />
 
@@ -201,14 +217,16 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="45dp"
                     android:layout_weight=".50"
                     android:background="@drawable/edit_text_bg"
                     android:hint="Expiry Month"
+                    android:textSize="14sp"
                     android:inputType="number"
                     android:maxLines="1"
                     android:maxLength="2"
                     android:paddingLeft="10dp"
+                    android:imeOptions="actionDone"
                     android:fontFamily="sans-serif-light"
                     android:textColor="@color/black" />
 
@@ -216,15 +234,17 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="45dp"
                     android:layout_weight=".50"
                     android:background="@drawable/edit_text_bg"
                     android:hint="Expiry year"
                     android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
                     android:inputType="number"
                     android:maxLines="1"
                     android:maxLength="4"
                     android:paddingLeft="10dp"
+                    android:imeOptions="actionDone"
                     android:fontFamily="sans-serif-light"
                     android:textColor="@color/black" />
 
@@ -250,29 +270,33 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="45dp"
                     android:layout_weight=".50"
                     android:background="@drawable/edit_text_bg"
                     android:hint="Delivery Name"
                     android:inputType="text"
+                    android:textSize="14sp"
                     android:maxLines="1"
                     android:paddingLeft="10dp"
                     android:fontFamily="sans-serif-light"
+                    android:imeOptions="actionDone"
                     android:textColor="@color/black" />
 
 
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="45dp"
                     android:layout_weight=".50"
                     android:background="@drawable/edit_text_bg"
                     android:hint="Delivery Number"
                     android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
                     android:inputType="number"
                     android:maxLines="1"
                     android:maxLength="10"
                     android:paddingLeft="10dp"
+                    android:imeOptions="actionDone"
                     android:fontFamily="sans-serif-light"
                     android:textColor="@color/black" />
 
@@ -295,32 +319,48 @@
             <EditText
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_weight=".50"
                 android:background="@drawable/edit_text_bg"
                 android:hint="Refer Code (Optional)"
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="10dp"
+                android:textSize="14sp"
+                android:imeOptions="actionDone"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/black"/>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp">
+
+                <include layout="@layout/button_layout"/>
 
 
-            <include layout="@layout/button_layout"/>
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"/>
 
         </LinearLayout>
 
 
     </ScrollView>
+
+<!--                <LinearLayout-->
+<!--                    android:layout_weight=".72"-->
+<!--                    android:gravity="bottom"-->
+<!--                    android:layout_gravity="bottom"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
+
+
+<!--                    <include layout="@layout/button_layout"/>-->
+
+<!--                </LinearLayout>-->
+
+
+
 
 </LinearLayout>

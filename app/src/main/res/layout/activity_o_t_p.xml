@@ -27,7 +27,7 @@
             android:text="Please Enter 4-digit OTP sent to your mobile number"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"/>
 
 

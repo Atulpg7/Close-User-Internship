@@ -31,7 +31,7 @@
             app:button_trail_enabled="true"
             app:has_activate_state="true"
             app:initial_state="disabled"
-            app:inner_text="     Swipe to Login"
+            app:inner_text="     Swipe to Continue"
             app:inner_text_background="@color/colorPrimary"
             app:inner_text_bottom_padding="18dp"
             app:inner_text_color="@android:color/black"
