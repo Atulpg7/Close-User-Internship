@@ -16,20 +16,54 @@ import com.google.android.material.snackbar.Snackbar;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 
 public class RequestFunctions {
 
 
-    //Function for Sending OTP on Mobile Number
-    static void sendOTP(String mob_no, String android_id, View view, Context context) {
+    //SSL Request
+    public static void getSSL(Context context) {
+        try {
+            TrustManager[] trustAllCerts = new TrustManager[] {
+                    new X509TrustManager() {
+                        public X509Certificate[] getAcceptedIssuers() {
+                            X509Certificate[] myTrustedAnchors = new X509Certificate[0];
+                            return myTrustedAnchors;
+                        }
 
-        final String URL = ServerData.baseUrl + "/login-otp";
+                        @Override
+                        public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+
+                        @Override
+                        public void checkServerTrusted(X509Certificate[] certs, String authType) {}
+                    }
+            };
+
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustAllCerts, new SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+            HttpsURLConnection.setDefaultHostnameVerifier((arg0, arg1) -> true);
+        } catch (Exception e) {
+            Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }//SSL Request Method End
+
+
+    //Function for Sending OTP on Mobile Number
+    static void sendOTP( View view, Context context) {
+
+        final String URL = GlobalData.baseUrl + "/login-otp";
 
         RequestQueue queue = Volley.newRequestQueue(context);
 
@@ -54,8 +88,6 @@ public class RequestFunctions {
                                     //If Otp Requested from Login Class
                                     if (context.getClass().getSimpleName().equals("LoginActivity")) {
                                         Intent intent = new Intent(context, OTPActivity.class);
-                                        intent.putExtra("mob_no", mob_no);
-                                        intent.putExtra("android_id", android_id);
                                         context.startActivity(intent);
                                         ((Activity)context).finish();
                                     }
@@ -63,7 +95,7 @@ public class RequestFunctions {
                             }, 1000);
 
                 } else {
-                    Toast.makeText(context, "Something went wrong !", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Something went wrong!", Snackbar.LENGTH_LONG).show();
                 }
 
             } catch (JSONException e) {
@@ -75,13 +107,60 @@ public class RequestFunctions {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("phone", "91" + mob_no);
-                params.put("androidId", android_id);
+                params.put("phone", "91" + GlobalData.mobileNo);
+                params.put("androidId", GlobalData.androidId);
                 return params;
             }
         };
         queue.add(request);
     }//OTP Send Method End
+
+
+    //Function for Verify OTP
+    static void verifyOTP(String otp, View view, Context context) {
+
+        final String URL = GlobalData.baseUrl + "/login";
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        StringRequest request = new StringRequest(Request.Method.POST, URL, response -> {
+
+            Log.w("Response == > ", "" + response);
+
+            try {
+
+                JSONObject responeObject = new JSONObject(response);
+
+                if (!responeObject.getBoolean("done")){
+                    Snackbar.make(view,"Entered OTP Incorrect",Snackbar.LENGTH_LONG).show();
+                }else {
+                    Intent intent=new Intent(context,SignupActivity.class);
+                    context.startActivity(intent);
+                    ((Activity)context).finish();
+                }
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }, error -> {
+            Log.e("Error == > ", "" + error);
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("phone", "91" + GlobalData.mobileNo);
+                params.put("androidId", GlobalData.androidId);
+                params.put("otp", otp);
+                return params;
+            }
+        };
+        queue.add(request);
+    }//OTP Verify Method End
+
+
+
+
 
 
 }

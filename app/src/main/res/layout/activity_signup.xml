@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".SignupActivity">
+
+
+    <include layout="@layout/toolbar_layout" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="sans-serif-thin"
+                android:text="Give details only once for use across all\n partners"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:paddingLeft="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal Information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@color/colorAccent"/>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight=".50"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="First Name"
+                    android:fontFamily="sans-serif-light"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight=".50"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="Last Name"
+                    android:fontFamily="sans-serif-light"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:layout_weight=".50"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Email Id"
+                android:fontFamily="sans-serif-light"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:layout_weight=".50"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Delivery Address Line"
+                android:inputType="text"
+                android:fontFamily="sans-serif-light"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:layout_weight=".50"
+                android:background="@drawable/edit_text_bg"
+                android:hint="City"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black" />
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:layout_weight=".50"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Pincode"
+                android:inputType="number"
+                android:maxLines="1"
+                android:maxLength="6"
+                android:paddingLeft="10dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black" />
+
+
+
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:paddingLeft="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Card Details"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@color/colorAccent"/>
+
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_weight=".30"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Card Number"
+                android:inputType="number"
+                android:maxLines="1"
+                android:maxLength="19"
+                android:paddingLeft="10dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black" />
+
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight=".90"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="CVV"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="4"
+                    android:paddingLeft="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight=".50"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="Expiry Month"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="2"
+                    android:paddingLeft="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black" />
+
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight=".50"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="Expiry year"
+                    android:layout_marginLeft="10dp"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="4"
+                    android:paddingLeft="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:paddingLeft="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delivery Details"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@color/colorAccent"/>
+
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight=".50"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="Delivery Name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black" />
+
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight=".50"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="Delivery Number"
+                    android:layout_marginLeft="10dp"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="10"
+                    android:paddingLeft="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:paddingLeft="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Referral Details"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@color/colorAccent"/>
+
+            <EditText
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight=".50"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Refer Code (Optional)"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"/>
+
+
+            <include layout="@layout/button_layout"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

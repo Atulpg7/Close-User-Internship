@@ -6,9 +6,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.closeuser.Adapters.ViewPagerAdapter;
@@ -18,11 +15,10 @@ import com.example.closeuser.Fragments.StartScreen_Page_3;
 import com.example.closeuser.Fragments.StartScreen_Page_4;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class StartUpActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     ViewPagerAdapter adapter;
@@ -37,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
         getReferences();
         setViewPager();
 
-        txt_enter_mob.setOnClickListener(view -> {startActivity(new Intent(MainActivity.this,LoginActivity.class)); finish();});
+        //Getting SSl Certificates for the Application
+        RequestFunctions.getSSL(StartUpActivity.this);
+
+        txt_enter_mob.setOnClickListener(view -> {startActivity(new Intent(StartUpActivity.this,LoginActivity.class)); finish();});
 
 
     }

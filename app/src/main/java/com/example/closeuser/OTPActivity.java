@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ public class OTPActivity extends AppCompatActivity {
     LinePinField otp_field;
     Button btn_proceed;
 
+
     //For resend Password
     Timer t;
     int seconds = 0;
@@ -38,7 +40,7 @@ public class OTPActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_o_t_p);
 
-        getIntents();
+        //getIntents();
 
         getReferences();
 
@@ -59,19 +61,11 @@ public class OTPActivity extends AppCompatActivity {
         otp_field=findViewById(R.id.otp_field);
         enter_mob_again=findViewById(R.id.enter_mob_again);
         btn_proceed=findViewById(R.id.btn_proceed);
+
     }
 
 
 
-    //Getting Mob No and Android Id from tLogin Activity
-    private void getIntents() {
-        Intent intent=getIntent();
-        if (intent!=null) {
-            mob_no = intent.getStringExtra("mob_no");
-            android_id = intent.getStringExtra("android_id");
-        }
-    }
-    
     
     
 
@@ -86,27 +80,26 @@ public class OTPActivity extends AppCompatActivity {
 
         resend_otp.setOnClickListener(view -> {
             Snackbar.make(contextView,"Resending OTP...",Snackbar.LENGTH_SHORT).show();
-            RequestFunctions.sendOTP(mob_no,android_id,contextView,OTPActivity.this);
+            RequestFunctions.sendOTP(contextView,OTPActivity.this);
             resend_otp.setEnabled(false);
             startTimer();
         });
+
 
         enter_mob_again.setOnClickListener(view -> {
             startActivity(new Intent(OTPActivity.this,LoginActivity.class));
             finish();
         });
-        
+
+
         btn_proceed.setOnClickListener(view -> {
             
             if (entered_otp.length()!=4){
                 Snackbar.make(contextView,"Please Enter OTP",Snackbar.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(this, "Sucessfull...", Toast.LENGTH_SHORT).show();
+                RequestFunctions.verifyOTP(entered_otp,contextView,this);
             }
-            
         });
-
-
     }
 
     
@@ -138,8 +131,7 @@ public class OTPActivity extends AppCompatActivity {
         }, 0, 1000);
     }
 
-    
-    
+
 
     //Setting Toolbar
     private void setToolbar() {
