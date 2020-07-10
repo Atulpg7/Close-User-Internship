@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:padding="1dp"
+    android:background="@drawable/main_bg_edittext"
+    android:orientation="vertical">
+
+
+
+
+        <com.ebanx.swipebtn.SwipeButton
+            android:id="@+id/btn_swipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            app:button_background="@color/colorAccent"
+            app:button_bottom_padding="10dp"
+            app:button_image_disabled="@drawable/arrow_vector"
+            app:button_image_enabled="@drawable/arrow_vector"
+            app:button_image_height="60dp"
+            app:button_image_width="60dp"
+            app:button_left_padding="10dp"
+            app:button_right_padding="10dp"
+            app:button_top_padding="10dp"
+            app:button_trail_drawable="@drawable/generating_otp_trail"
+            app:button_trail_enabled="true"
+            app:has_activate_state="true"
+            app:initial_state="disabled"
+            app:inner_text="     Swipe to Login"
+            app:inner_text_background="@color/colorPrimary"
+            app:inner_text_bottom_padding="18dp"
+            app:inner_text_color="@android:color/black"
+            app:inner_text_size="16sp"
+            app:inner_text_top_padding="18dp" />
+
+
+
+</LinearLayout>

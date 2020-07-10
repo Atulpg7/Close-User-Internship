@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/otp_layout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OTPActivity"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Please Enter 4-digit OTP sent to your mobile\n number"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp">
+
+            <com.poovam.pinedittextfield.LinePinField
+                android:id="@+id/otp_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:inputType="number"
+                android:textSelectHandle="@color/colorAccent"
+                android:textSize="25sp"
+                app:bottomTextPaddingDp="1dp"
+                app:distanceInBetween="8dp"
+                android:textColor="@color/colorAccent"
+                app:fieldColor="@color/black"
+                app:highlightColor="@color/colorAccent"
+                app:highlightType="currentField"
+                app:isCursorEnabled="false"
+                app:isCustomBackground="true"
+                app:lineThickness="1dp"
+                app:noOfFields="4" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingBottom="40dp">
+
+        <LinearLayout
+            android:layout_weight=".50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:enabled="false"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/btn_resend"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resend OTP in : 60 Secs"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-light"/>
+
+
+            <TextView
+                android:id="@+id/enter_mob_again"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit my mobile number"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-light"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_weight=".50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="20dp">
+
+
+            <Button
+                android:id="@+id/btn_proceed"
+                android:elevation="10dp"
+                android:background="@drawable/button_bg_otp"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="end"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
