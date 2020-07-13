@@ -93,12 +93,15 @@ public class OTPActivity extends AppCompatActivity {
 
 
         btn_proceed.setOnClickListener(view -> {
+
+
+            startActivity(new Intent(OTPActivity.this,SignupActivity.class));
             
-            if (entered_otp.length()!=4){
-                Snackbar.make(contextView,"Please Enter OTP",Snackbar.LENGTH_SHORT).show();
-            }else{
-                RequestFunctions.verifyOTP(entered_otp,contextView,this);
-            }
+//            if (entered_otp.length()!=4){
+//                Snackbar.make(contextView,"Please Enter OTP",Snackbar.LENGTH_SHORT).show();
+//            }else{
+//                RequestFunctions.verifyOTP(entered_otp,contextView,this);
+//            }
         });
     }
 

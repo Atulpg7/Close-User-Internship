@@ -55,9 +55,11 @@ public class RequestFunctions {
             HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
             HttpsURLConnection.setDefaultHostnameVerifier((arg0, arg1) -> true);
         } catch (Exception e) {
-            Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }//SSL Request Method End
+
+
 
 
     //Function for Sending OTP on Mobile Number
@@ -102,18 +104,21 @@ public class RequestFunctions {
                 e.printStackTrace();
             }
         }, error -> {
+            Snackbar.make(view,"Something went wrong ! Try again..",Snackbar.LENGTH_LONG).show();
             Log.e("Error == > ", "" + error);
         }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("phone", "91" + GlobalData.mobileNo);
-                params.put("androidId", GlobalData.androidId);
+                params.put("phone", "91" + UserData.getMobileNo());
+                params.put("androidId", UserData.getAndroidId());
                 return params;
             }
         };
         queue.add(request);
     }//OTP Send Method End
+
+
 
 
     //Function for Verify OTP
@@ -125,7 +130,7 @@ public class RequestFunctions {
 
         StringRequest request = new StringRequest(Request.Method.POST, URL, response -> {
 
-            Log.w("Response == > ", "" + response);
+            Log.e("Response == > ", "" + response);
 
             try {
 
@@ -144,20 +149,20 @@ public class RequestFunctions {
                 e.printStackTrace();
             }
         }, error -> {
+            Snackbar.make(view,"Something went wrong ! Try again..",Snackbar.LENGTH_LONG).show();
             Log.e("Error == > ", "" + error);
         }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("phone", "91" + GlobalData.mobileNo);
-                params.put("androidId", GlobalData.androidId);
+                params.put("phone", "91" + UserData.getMobileNo());
+                params.put("androidId", UserData.getMobileNo());
                 params.put("otp", otp);
                 return params;
             }
         };
         queue.add(request);
     }//OTP Verify Method End
-
 
 
 

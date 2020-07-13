@@ -47,10 +47,12 @@ public class LoginActivity extends AppCompatActivity {
                 Snackbar.make(contextView, "Sending OTP please wait...", Snackbar.LENGTH_LONG).show();
                 btn_swipe.toggleState();
 
-                GlobalData.mobileNo=mob_no;
-                GlobalData.androidId=android_id;
+                UserData.setMobileNo(mob_no);
+                UserData.setAndroidId(android_id);
 
-                RequestFunctions.sendOTP(contextView,LoginActivity.this);
+              //  RequestFunctions.sendOTP(contextView,LoginActivity.this);
+
+                startActivity(new Intent(LoginActivity.this,SignupActivity.class));
 
             }
         });

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
+    android:id="@+id/signup_view"
     tools:context=".SignupActivity">
 
 
@@ -13,6 +14,7 @@
 
 
     <ScrollView
+        android:layout_weight=".80"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
@@ -57,6 +59,7 @@
 
 
                 <EditText
+                    android:id="@+id/et_fname"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_weight=".50"
@@ -71,6 +74,7 @@
                     android:textColor="@color/black" />
 
                 <EditText
+                    android:id="@+id/et_lname"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:textSize="14sp"
@@ -89,6 +93,7 @@
 
 
             <EditText
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_margin="8dp"
@@ -105,6 +110,7 @@
 
 
             <EditText
+                android:id="@+id/et_address"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_margin="8dp"
@@ -120,6 +126,7 @@
                 android:textColor="@color/black" />
 
             <EditText
+                android:id="@+id/et_city"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_margin="8dp"
@@ -137,6 +144,7 @@
 
 
             <EditText
+                android:id="@+id/et_pincode"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_margin="8dp"
@@ -174,6 +182,7 @@
                 android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/et_cardno"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_margin="5dp"
@@ -192,6 +201,7 @@
 
 
                 <EditText
+                    android:id="@+id/et_cvv"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_margin="5dp"
@@ -216,6 +226,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/et_exmonth"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_weight=".50"
@@ -233,6 +244,7 @@
 
 
                 <EditText
+                    android:id="@+id/et_exyear"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_weight=".50"
@@ -269,6 +281,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/et_dname"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_weight=".50"
@@ -285,6 +298,7 @@
 
 
                 <EditText
+                    android:id="@+id/et_dno"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_weight=".50"
@@ -317,6 +331,7 @@
                 android:textColor="@color/colorAccent"/>
 
             <EditText
+                android:id="@+id/et_ref"
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -332,23 +347,23 @@
                 android:textColor="@color/black"/>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp">
-
-                <include layout="@layout/button_layout"/>
-
-
-            </LinearLayout>
-
-
         </LinearLayout>
 
 
     </ScrollView>
 
-<!--                <LinearLayout-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp">
+
+
+        <include layout="@layout/button_layout"/>
+
+    </LinearLayout>
+
+
+    <!--                <LinearLayout-->
 <!--                    android:layout_weight=".72"-->
 <!--                    android:gravity="bottom"-->
 <!--                    android:layout_gravity="bottom"-->
