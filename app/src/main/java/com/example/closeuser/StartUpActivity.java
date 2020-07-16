@@ -13,6 +13,7 @@ import com.example.closeuser.Fragments.StartScreen_Page_1;
 import com.example.closeuser.Fragments.StartScreen_Page_2;
 import com.example.closeuser.Fragments.StartScreen_Page_3;
 import com.example.closeuser.Fragments.StartScreen_Page_4;
+import com.example.closeuser.GeneralClasses.RequestFunctions;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class StartUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_start);
 
         getReferences();
         setViewPager();

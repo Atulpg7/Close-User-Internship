@@ -1,4 +1,4 @@
-package com.example.closeuser;
+package com.example.closeuser.GeneralClasses;
 
 public class UserData {
 

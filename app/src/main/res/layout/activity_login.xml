@@ -63,7 +63,6 @@
                 android:layout_marginLeft="10dp"
                 android:focusedByDefault="false"
                 android:inputType="number"
-                android:text="1234567890"
                 android:maxLength="10"
                 android:textColor="@color/black"
                 android:textSize="20sp" />

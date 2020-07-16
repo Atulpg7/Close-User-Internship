@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.ebanx.swipebtn.SwipeButton;
+import com.example.closeuser.GeneralClasses.RequestFunctions;
+import com.example.closeuser.GeneralClasses.UserData;
 import com.google.android.material.snackbar.Snackbar;
 
 public class LoginActivity extends AppCompatActivity {
@@ -37,24 +39,25 @@ public class LoginActivity extends AppCompatActivity {
 
             String mob_no = edt_enter_mob.getText().toString();
 
-            if (mob_no.length() != 10) {
+            startActivity(new Intent(LoginActivity.this,OTPActivity.class));
+            finish();
 
-                btn_swipe.setText("          Swipe again to Continue");
-                Snackbar.make(contextView, "Enter valid number", Snackbar.LENGTH_LONG).show();
-                btn_swipe.toggleState();
-
-            } else {
-                Snackbar.make(contextView, "Sending OTP please wait...", Snackbar.LENGTH_LONG).show();
-                btn_swipe.toggleState();
-
-                UserData.setMobileNo(mob_no);
-                UserData.setAndroidId(android_id);
-
-              //  RequestFunctions.sendOTP(contextView,LoginActivity.this);
-
-                startActivity(new Intent(LoginActivity.this,SignupActivity.class));
-
-            }
+//            if (mob_no.length() != 10) {
+//
+//                btn_swipe.setText("          Swipe again to Continue");
+//                Snackbar.make(contextView, "Enter valid number", Snackbar.LENGTH_LONG).show();
+//                btn_swipe.toggleState();
+//
+//            } else {
+//                Snackbar.make(contextView, "Sending OTP please wait...", Snackbar.LENGTH_LONG).show();
+//                btn_swipe.toggleState();
+//
+//                UserData.setMobileNo(mob_no);
+//                UserData.setAndroidId(android_id);
+//
+//               RequestFunctions.sendOTP(contextView,LoginActivity.this);
+//
+//            }
         });
 
     }

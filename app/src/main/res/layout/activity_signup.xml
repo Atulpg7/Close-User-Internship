@@ -192,7 +192,7 @@
                 android:hint="Card Number"
                 android:inputType="number"
                 android:maxLines="1"
-                android:maxLength="19"
+                android:maxLength="16"
                 android:paddingLeft="10dp"
                 android:fontFamily="sans-serif-light"
                 android:imeOptions="actionDone"

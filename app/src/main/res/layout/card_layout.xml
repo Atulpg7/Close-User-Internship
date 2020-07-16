@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:outlineAmbientShadowColor="@color/black"
+    android:outlineSpotShadowColor="@color/black"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/card_layout_bg"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bank_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".50"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical"
+                android:text="HDFC"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:src="@drawable/nfc_icon" />
+
+        </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxxx xxxx xxxx"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/last_digits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 1234"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical"
+                android:text="Exp. Date "
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/expiry_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00/00"
+                android:paddingLeft="5dp"
+                android:fontFamily="sans-serif-light"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/holder_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Card Holder"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/top_layout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:layout_marginLeft="20dp"-->
+    <!--        android:gravity="start"-->
+    <!--        android:orientation="horizontal">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/name"-->
+    <!--            android:layout_weight=".50"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_gravity="center_vertical"-->
+    <!--            android:fontFamily="sans-serif-light"-->
+    <!--            android:text="Atul Kumar"-->
+    <!--            android:textAllCaps="true"-->
+    <!--            android:gravity="center_vertical"-->
+    <!--            android:textColor="@color/black"-->
+    <!--            android:textSize="18dp"-->
+    <!--            android:textStyle="bold" />-->
+
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/btn_delete"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="30dp"-->
+    <!--            android:layout_gravity="center_vertical"-->
+    <!--            android:layout_weight=".50"-->
+    <!--            android:src="@drawable/delete" />-->
+
+    <!--    </LinearLayout>-->
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/address"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@+id/top_layout"-->
+    <!--        android:layout_marginLeft="20dp"-->
+    <!--        android:layout_marginTop="30dp"-->
+    <!--        android:fontFamily="sans-serif-light"-->
+    <!--        android:gravity="start"-->
+    <!--        android:text="Baldevpuram, Aurangabad, Mathura"-->
+    <!--        android:textSize="15dp" />-->
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/mobile_no"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@+id/address"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginLeft="20dp"-->
+    <!--        android:layout_marginTop="30dp"-->
+    <!--        android:fontFamily="sans-serif-light"-->
+    <!--        android:gravity="start"-->
+    <!--        android:text="Mobile: +8193800247"-->
+    <!--        android:textSize="15dp" />-->

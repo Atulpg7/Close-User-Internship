@@ -5,17 +5,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.closeuser.GeneralClasses.RequestFunctions;
 import com.google.android.material.snackbar.Snackbar;
 import com.poovam.pinedittextfield.LinePinField;
-import com.poovam.pinedittextfield.PinField;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -96,12 +92,14 @@ public class OTPActivity extends AppCompatActivity {
 
 
             startActivity(new Intent(OTPActivity.this,SignupActivity.class));
-            
-//            if (entered_otp.length()!=4){
-//                Snackbar.make(contextView,"Please Enter OTP",Snackbar.LENGTH_SHORT).show();
-//            }else{
-//                RequestFunctions.verifyOTP(entered_otp,contextView,this);
-//            }
+            finish();
+
+            /*
+            if (entered_otp.length()!=4){
+                Snackbar.make(contextView,"Please Enter OTP",Snackbar.LENGTH_SHORT).show();
+            }else{
+                //RequestFunctions.verifyOTP(entered_otp,contextView,this);
+            }*/
         });
     }
 

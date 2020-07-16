@@ -1,4 +1,4 @@
-package com.example.closeuser;
+package com.example.closeuser.GeneralClasses;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,6 +11,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.closeuser.GeneralClasses.GlobalData;
+import com.example.closeuser.GeneralClasses.UserData;
+import com.example.closeuser.OTPActivity;
+import com.example.closeuser.SignupActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
@@ -63,7 +67,7 @@ public class RequestFunctions {
 
 
     //Function for Sending OTP on Mobile Number
-    static void sendOTP( View view, Context context) {
+    public static void sendOTP(View view, Context context) {
 
         final String URL = GlobalData.baseUrl + "/login-otp";
 
@@ -122,7 +126,7 @@ public class RequestFunctions {
 
 
     //Function for Verify OTP
-    static void verifyOTP(String otp, View view, Context context) {
+    public static void verifyOTP(String otp, View view, Context context) {
 
         final String URL = GlobalData.baseUrl + "/login";
 
@@ -139,7 +143,7 @@ public class RequestFunctions {
                 if (!responeObject.getBoolean("done")){
                     Snackbar.make(view,"Entered OTP Incorrect",Snackbar.LENGTH_LONG).show();
                 }else {
-                    Intent intent=new Intent(context,SignupActivity.class);
+                    Intent intent=new Intent(context, SignupActivity.class);
                     context.startActivity(intent);
                     ((Activity)context).finish();
                 }
