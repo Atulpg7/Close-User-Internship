@@ -39,25 +39,22 @@ public class LoginActivity extends AppCompatActivity {
 
             String mob_no = edt_enter_mob.getText().toString();
 
-            startActivity(new Intent(LoginActivity.this,OTPActivity.class));
-            finish();
+            if (mob_no.length() != 10) {
 
-//            if (mob_no.length() != 10) {
-//
-//                btn_swipe.setText("          Swipe again to Continue");
-//                Snackbar.make(contextView, "Enter valid number", Snackbar.LENGTH_LONG).show();
-//                btn_swipe.toggleState();
-//
-//            } else {
-//                Snackbar.make(contextView, "Sending OTP please wait...", Snackbar.LENGTH_LONG).show();
-//                btn_swipe.toggleState();
-//
-//                UserData.setMobileNo(mob_no);
-//                UserData.setAndroidId(android_id);
-//
-//               RequestFunctions.sendOTP(contextView,LoginActivity.this);
-//
-//            }
+                btn_swipe.setText("          Swipe again to Continue");
+                Snackbar.make(contextView, "Enter valid number", Snackbar.LENGTH_LONG).show();
+                btn_swipe.toggleState();
+
+            } else {
+                Snackbar.make(contextView, "Sending OTP please wait...", Snackbar.LENGTH_LONG).show();
+                btn_swipe.toggleState();
+
+                UserData.setMobileNo(mob_no);
+                UserData.setAndroidId(android_id);
+
+               RequestFunctions.sendOTP(contextView,LoginActivity.this);
+
+            }
         });
 
     }

@@ -1,27 +1,43 @@
 package com.example.closeuser.Fragments;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.closeuser.Adapters.AddressAdapter;
 import com.example.closeuser.Adapters.CardAdapter;
 import com.example.closeuser.Models.AddressModel;
 import com.example.closeuser.Models.CardDetailsModel;
 import com.example.closeuser.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.snackbar.Snackbar;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    RecyclerView address_rv,cards_rv;
+    RecyclerView address_rv, cards_rv;
     View view;
 
     AddressAdapter addressAdapter;
@@ -31,6 +47,14 @@ public class HomeFragment extends Fragment {
     List<CardDetailsModel> cardDetailsModelList;
 
 
+    //Add Location
+    RelativeLayout add_your_location;
+    double latitude;
+    double longitude;
+
+    Context context;
+    Activity activity;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,13 +63,62 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
         getReferences();
-        setAddressData();
+        //setAddressData();
 
         setCardData();
+
+        btnClicks();
 
         return view;
     }
 
+    private void btnClicks() {
+
+        add_your_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                        && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                } else {
+
+
+                    LocationManager lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
+                    List<String> providers = lm.getProviders(true);
+
+                    Location location = null;
+
+                    for (int i = providers.size() - 1; i >= 0; i--) {
+                        location = lm.getLastKnownLocation(providers.get(i));
+                        if (location != null) break;
+                    }
+
+                    if (location != null) {
+                        latitude = location.getLatitude();
+                        longitude = location.getLongitude();
+
+                        Geocoder geocoder=new Geocoder(context);
+                        List<Address> area = null;
+
+                        try {
+                            area = geocoder.getFromLocation(latitude, longitude, 1);
+                            Log.e("Data: ", "" + area.get(0).getAddressLine(0));
+
+
+                            BottomSheetDialog dialog = new BottomSheetDialog(context);
+                            dialog.setContentView(R.layout.add_address_layout_popup);
+                            dialog.show();
+
+                        } catch (IOException e) {
+                            Snackbar.make(view,"Try Again !",Snackbar.LENGTH_SHORT).show();
+                        }
+                    }
+
+                }
+            }
+        });
+    }
 
 
     private void setCardData() {
@@ -70,15 +143,13 @@ public class HomeFragment extends Fragment {
         cardDetailsModelList.add(model1);
         cardDetailsModelList.add(model2);
 
-        cardAdapter = new CardAdapter(getContext(),cardDetailsModelList);
+        cardAdapter = new CardAdapter(getContext(), cardDetailsModelList);
 
         cards_rv.setHasFixedSize(true);
-        cards_rv.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        cards_rv.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         cards_rv.setAdapter(cardAdapter);
 
         cardAdapter.notifyDataSetChanged();
-
-
 
 
     }
@@ -102,10 +173,10 @@ public class HomeFragment extends Fragment {
         addressModelList.add(address2);
 
 
-        addressAdapter = new AddressAdapter(getContext(),addressModelList);
+        addressAdapter = new AddressAdapter(getContext(), addressModelList);
 
         address_rv.setHasFixedSize(true);
-        address_rv.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        address_rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         address_rv.setAdapter(addressAdapter);
         addressAdapter.notifyDataSetChanged();
@@ -116,6 +187,9 @@ public class HomeFragment extends Fragment {
 
         address_rv = view.findViewById(R.id.address_rv);
         cards_rv = view.findViewById(R.id.cards_rv);
+        add_your_location = view.findViewById(R.id.add_your_location);
+        context = getContext();
+        activity = getActivity();
 
         cardDetailsModelList = new ArrayList<>();
         addressModelList = new ArrayList<>();

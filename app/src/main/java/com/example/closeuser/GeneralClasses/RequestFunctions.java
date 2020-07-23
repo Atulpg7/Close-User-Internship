@@ -123,8 +123,6 @@ public class RequestFunctions {
     }//OTP Send Method End
 
 
-
-
     //Function for Verify OTP
     public static void verifyOTP(String otp, View view, Context context) {
 
@@ -169,7 +167,109 @@ public class RequestFunctions {
     }//OTP Verify Method End
 
 
+    //Function for SignUp OTP
+    public static void signUp(View view, Context context) {
 
+        final String URL = GlobalData.baseUrl + "/signup";
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        StringRequest request = new StringRequest(Request.Method.POST, URL, response -> {
+
+            Log.e("Response SignUp == > ", "" + response);
+
+
+        }, error -> {
+            Snackbar.make(view,"Something went wrong ! Try again..",Snackbar.LENGTH_LONG).show();
+            Log.e("Error == > ", "" + error);
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                JSONObject json = new JSONObject();
+
+                try {
+                    json.put("addressLine2", UserData.getAddress());
+                    json.put("street", UserData.getCity());
+                    json.put("pincode", UserData.getPincode());
+                    json.put("deliveryName", UserData.getDelivery_name());
+                    json.put("deliveryPhone", UserData.getDelivery_mobileNo());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                params.put("referCode",""+UserData.getRefer_code());
+                params.put("email", UserData.getEmail_id());
+                params.put("firstname", UserData.getFirst_name());
+                params.put("lastname", UserData.getLast_name());
+                params.put("address",  json.toString());
+                params.put("androidId", UserData.getAndroidId());
+
+                Log.e("Data Sending ==>  ",params.toString());
+
+                return params;
+            }
+        };
+        queue.add(request);
+    }//Signup Function Method End
+
+
+
+
+    //Function for Signup hash
+    public static void signUpHash(View view, Context context) {
+
+        final String URL = GlobalData.baseUrl + "/signup-trans-hash";
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        StringRequest request = new StringRequest(Request.Method.POST, URL, response -> {
+
+            Log.e("Response == > ", "" + response);
+
+
+        }, error -> {
+            Snackbar.make(view,"Something went wrong ! Try again..",Snackbar.LENGTH_LONG).show();
+            Log.e("Error == > ", "" + error);
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("android-id", UserData.getAndroidId());
+                return params;
+            }
+        };
+        queue.add(request);
+    }//Signup Hash Method End
+
+
+
+    //Function for Pay U Key
+    public static void payUkey(View view, Context context) {
+
+        final String URL = GlobalData.baseUrl + "/payu_key";
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        StringRequest request = new StringRequest(Request.Method.POST, URL, response -> {
+
+            Log.e("Response == > ", "" + response);
+
+
+        }, error -> {
+            Snackbar.make(view,"Something went wrong ! Try again..",Snackbar.LENGTH_LONG).show();
+            Log.e("Error == > ", "" + error);
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("android-id", UserData.getAndroidId());
+                return params;
+            }
+        };
+        queue.add(request);
+    }//Pay U key Method End
 
 
 }
