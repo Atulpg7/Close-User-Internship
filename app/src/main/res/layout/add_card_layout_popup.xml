@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_add_card_popup"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottom_sheet_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/adding_popups_bg"
     android:padding="8dp">
 
     <LinearLayout
@@ -21,13 +20,13 @@
             android:fontFamily="sans-serif-thin"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
-            android:text="Add your Address"
+            android:text="Add a new Card"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/close_btn_address"
+            android:id="@+id/close_btn_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -37,71 +36,24 @@
     </LinearLayout>
 
 
-    <EditText
-        android:id="@+id/et_locality"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:textSize="14sp"
-        android:background="@drawable/edit_text_bg"
-        android:hint="Locality"
-        android:inputType="text"
-        android:fontFamily="sans-serif-light"
-        android:maxLines="1"
-        android:imeOptions="actionDone"
-        android:paddingLeft="10dp"
-        android:textColor="@color/black" />
-
-    <EditText
-        android:id="@+id/et_area"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="5dp"
-        android:textSize="14sp"
-        android:background="@drawable/edit_text_bg"
-        android:hint="Area"
-        android:inputType="text"
-        android:fontFamily="sans-serif-light"
-        android:maxLines="1"
-        android:imeOptions="actionDone"
-        android:paddingLeft="10dp"
-        android:textColor="@color/black" />
-
-    <EditText
-        android:id="@+id/et_pincode"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="5dp"
-        android:textSize="14sp"
-        android:background="@drawable/edit_text_bg"
-        android:hint="Pincode"
-        android:inputType="number"
-        android:maxLines="1"
-        android:maxLength="6"
-        android:paddingLeft="10dp"
-        android:imeOptions="actionDone"
-        android:fontFamily="sans-serif-light"
-        android:textColor="@color/black" />
-
     <LinearLayout
-        android:layout_margin="5dp"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/et_dname"
+            android:id="@+id/et_cardno"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_weight=".50"
-            android:background="@drawable/edit_text_bg"
-            android:hint="Delivery Name"
-            android:inputType="text"
+            android:layout_margin="5dp"
+            android:layout_weight=".30"
             android:textSize="14sp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="Card Number"
+            android:inputType="number"
             android:maxLines="1"
+            android:maxLength="16"
             android:paddingLeft="10dp"
             android:fontFamily="sans-serif-light"
             android:imeOptions="actionDone"
@@ -110,17 +62,60 @@
 
 
         <EditText
-            android:id="@+id/et_dno"
+            android:id="@+id/et_cvv"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:layout_weight=".90"
+            android:textSize="14sp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="CVV"
+            android:inputType="number"
+            android:maxLines="1"
+            android:maxLength="4"
+            android:paddingLeft="10dp"
+            android:imeOptions="actionDone"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_exmonth"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_weight=".50"
             android:background="@drawable/edit_text_bg"
-            android:hint="Delivery Number"
+            android:hint="Expiry Month"
+            android:textSize="14sp"
+            android:inputType="number"
+            android:maxLines="1"
+            android:maxLength="2"
+            android:paddingLeft="10dp"
+            android:imeOptions="actionDone"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/black" />
+
+
+
+        <EditText
+            android:id="@+id/et_exyear"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_weight=".50"
+            android:background="@drawable/edit_text_bg"
+            android:hint="Expiry year"
             android:layout_marginLeft="10dp"
             android:textSize="14sp"
             android:inputType="number"
             android:maxLines="1"
-            android:maxLength="10"
+            android:maxLength="4"
             android:paddingLeft="10dp"
             android:imeOptions="actionDone"
             android:fontFamily="sans-serif-light"
@@ -130,11 +125,11 @@
 
 
     <TextView
-        android:id="@+id/btn_save_address_popup"
+        android:id="@+id/btn_add_card_popup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Save Address"
+        android:text="Add Card"
         android:gravity="center"
         android:textStyle="bold"
         android:background="@drawable/add_popup_btn_bg"

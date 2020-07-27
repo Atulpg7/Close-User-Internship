@@ -20,7 +20,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.closeuser.Adapters.AddressAdapter;
@@ -45,6 +48,16 @@ public class HomeFragment extends Fragment {
 
     CardAdapter cardAdapter;
     List<CardDetailsModel> cardDetailsModelList;
+
+
+    //Add Address
+    ImageView btn_add_address;
+    View address_popup;
+
+
+    //Add Cards
+    ImageView btn_add_card;
+    View card_popup;
 
 
     //Add Location
@@ -74,49 +87,83 @@ public class HomeFragment extends Fragment {
 
     private void btnClicks() {
 
-        add_your_location.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        add_your_location.setOnClickListener(view -> {
 
-                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                        && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-                } else {
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            } else {
 
 
-                    LocationManager lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
-                    List<String> providers = lm.getProviders(true);
+                LocationManager lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
+                List<String> providers = lm.getProviders(true);
 
-                    Location location = null;
+                Location location = null;
 
-                    for (int i = providers.size() - 1; i >= 0; i--) {
-                        location = lm.getLastKnownLocation(providers.get(i));
-                        if (location != null) break;
-                    }
-
-                    if (location != null) {
-                        latitude = location.getLatitude();
-                        longitude = location.getLongitude();
-
-                        Geocoder geocoder=new Geocoder(context);
-                        List<Address> area = null;
-
-                        try {
-                            area = geocoder.getFromLocation(latitude, longitude, 1);
-                            Log.e("Data: ", "" + area.get(0).getAddressLine(0));
-
-
-                            BottomSheetDialog dialog = new BottomSheetDialog(context);
-                            dialog.setContentView(R.layout.add_address_layout_popup);
-                            dialog.show();
-
-                        } catch (IOException e) {
-                            Snackbar.make(view,"Try Again !",Snackbar.LENGTH_SHORT).show();
-                        }
-                    }
-
+                for (int i = providers.size() - 1; i >= 0; i--) {
+                    location = lm.getLastKnownLocation(providers.get(i));
+                    if (location != null) break;
                 }
+
+                if (location != null) {
+                    latitude = location.getLatitude();
+                    longitude = location.getLongitude();
+
+                    Geocoder geocoder=new Geocoder(context);
+                    List<Address> area = null;
+
+                    try {
+                        area = geocoder.getFromLocation(latitude, longitude, 1);
+                        Log.e("Data: ", "" + area.get(0).getAddressLine(0));
+
+
+                        BottomSheetDialog dialog = new BottomSheetDialog(context);
+                        dialog.setContentView(R.layout.add_address_layout_popup);
+                        dialog.show();
+
+                    } catch (IOException e) {
+                        Snackbar.make(view,"Try Again !",Snackbar.LENGTH_SHORT).show();
+                    }
+                }
+
             }
+        });
+
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(activity,R.style.BottomSheetDialogTheme);
+        bottomSheetDialog.setCanceledOnTouchOutside(false);
+        bottomSheetDialog.setCancelable(false);
+
+        btn_add_address.setOnClickListener(view->{
+            bottomSheetDialog.setContentView(address_popup);
+            bottomSheetDialog.show();
+
+            address_popup.findViewById(R.id.close_btn_address).setOnClickListener(view1 -> {
+                bottomSheetDialog.dismiss();
+            });
+
+
+            address_popup.findViewById(R.id.btn_save_address_popup).setOnClickListener(view1 -> {
+                Toast.makeText(context, "Submitted", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.dismiss();
+            });
+
+
+        });
+
+        btn_add_card.setOnClickListener(view -> {
+            bottomSheetDialog.setContentView(card_popup);
+            bottomSheetDialog.show();
+
+            card_popup.findViewById(R.id.close_btn_card).setOnClickListener(view1 -> {
+                bottomSheetDialog.dismiss();
+            });
+
+
+            card_popup.findViewById(R.id.btn_add_card_popup).setOnClickListener(view1 -> {
+                Toast.makeText(context, "Submitted", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.dismiss();
+            });
+
         });
     }
 
@@ -188,10 +235,16 @@ public class HomeFragment extends Fragment {
         address_rv = view.findViewById(R.id.address_rv);
         cards_rv = view.findViewById(R.id.cards_rv);
         add_your_location = view.findViewById(R.id.add_your_location);
+        btn_add_address = view.findViewById(R.id.btn_add_address);
+        btn_add_card = view.findViewById(R.id.btn_add_card);
         context = getContext();
         activity = getActivity();
-
         cardDetailsModelList = new ArrayList<>();
         addressModelList = new ArrayList<>();
+
+
+        //Bottom Sheet Layouts
+        address_popup = LayoutInflater.from(context).inflate(R.layout.add_address_layout_popup,null);
+        card_popup = LayoutInflater.from(context).inflate(R.layout.add_card_layout_popup,null);
     }
 }

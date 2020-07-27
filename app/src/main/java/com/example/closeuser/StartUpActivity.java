@@ -37,7 +37,7 @@ public class StartUpActivity extends AppCompatActivity {
         //Getting SSl Certificates for the Application
         RequestFunctions.getSSL(StartUpActivity.this);
 
-        txt_enter_mob.setOnClickListener(view -> {startActivity(new Intent(StartUpActivity.this,LoginActivity.class)); finish();});
+        txt_enter_mob.setOnClickListener(view -> {startActivity(new Intent(StartUpActivity.this,MainActivity.class)); finish();});
 
 
     }
